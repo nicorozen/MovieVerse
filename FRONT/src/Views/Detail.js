@@ -209,7 +209,7 @@ const Detail = () => {
 
       <div className='additional shared-container'>
         <div className='additional-titles'>
-          {similarItemsResults && similarItemsResults.length > 0 && (
+          {similarItemsResults && (
             <div className={`additional-title ${showSimilar ? 'active' : ''}`} onClick={handleToggleSimilar}>
               <h3>Quizás También Te Guste</h3>
             </div>
