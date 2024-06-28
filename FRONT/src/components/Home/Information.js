@@ -7,7 +7,7 @@ function Information(){
     <div className="information-section">
 
     <InformationItem  title={300} subtitle={"Películas y series para ver"} text={"Desde películas icónicas hasta series originales, tenemos una amplia variedad de opciones para todos los gustos."}/>
-    <InformationItem  title={40} subtitle={"Géneros para navegar"} text={"Desde películas icónicas hasta series originales, tenemos una amplia variedad de opciones para todos los gustos."}/>
+    <InformationItem  title={40} subtitle={"Géneros para navegar"} text={"Explora nuestra variada colección de géneros en nuestra biblioteca de películas y series."}/>
     <InformationItem  title={200} subtitle={"Actores y directores distintos"} text={"Descubre una selección única de películas y series con talento de primera línea. ¡Sumérgete en el mejor cine con nosotros!"}/>
     
     </div>

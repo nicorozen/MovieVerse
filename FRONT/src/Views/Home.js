@@ -34,7 +34,7 @@ function Home() {
         <>
           <div className="main-banner" style={{ backgroundImage: 'url("/images/home/Bienvenidos.png")' }}></div>
           <div className='home-login-section'>
-            <h4>Disfrutá de las mejores series y peliculas en un solo lugar</h4>
+            <h4>Explorá las mejores series y peliculas en un solo lugar</h4>
             <p>Iniciá sesión o creá tu cuenta y sumergite en el mundo del cine</p>
             <Link to={"/login"}>
               <button className="button white">Ingresar a <Logo></Logo></button>

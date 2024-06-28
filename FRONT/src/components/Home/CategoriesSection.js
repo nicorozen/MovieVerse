@@ -33,7 +33,7 @@ function CategoriesSection() {
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={0}
-        slidesPerView={4}
+        slidesPerView={2}
         navigation={true}
         scrollbar={{ draggable: true }}
         // onSwiper={(swiper) => console.log(swiper)}
