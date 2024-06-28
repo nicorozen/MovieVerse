@@ -1,6 +1,11 @@
-/node_modules
-/.pnp
+API/node_modules
+API/.pnp
 .pnp.js
-/coverage
-/build
+API/coverage
+API/build
+FRONT/node_modules
+FRONT/.pnp
+FRONT/coverage
+FRONT/build
+
 
