@@ -9,6 +9,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import Loader from '../Layout/Loader';
+import { Link } from 'react-router-dom';
 
 function CatalogItem({ selectedGenre, contentType, viewAllGenres }) {
   const type = contentType === 'series' ? 'tv' : 'movie';
@@ -51,7 +52,9 @@ function CatalogItem({ selectedGenre, contentType, viewAllGenres }) {
   } else if (viewAllGenres) {
     return (
       <div className="catalog-item">
-        <h4>{selectedGenre.name}</h4>
+        <Link to={`/${contentType}/category/${selectedGenre.id}`}>
+          <h4>{selectedGenre.name}</h4>
+        </Link>
         <Swiper {...settings}>
           {movies.map((movie) => (
             <SwiperSlide key={movie.id}>

@@ -53,14 +53,22 @@ const addListItem = async (userId, listType, movieId, contentType, image) => {
       let userList = await List.findOne({ 
         where: { userId: userId, listTypeId: dbListType.listTypeId }
       });
+      
   
-      // Si no se encuentra una lista, créala
+      // Si no se encuentra una lista, se crea
       if (!userList) {
         const newList = await List.create({ userId: userId });
         await newList.setListType(dbListType);
         userList = newList;
       }
 
+      const existingItem = await ListItem.findOne({
+        where: { listId: userList.listId, movieId: movieId }
+      });
+  
+      if (existingItem) {
+        return { error: true, message: 'El elemento ya existe en la lista' };
+      }
       // Crea un nuevo ListItem y asigna el listId
       const newItem = await ListItem.create({ 
         listId: userList.listId,
@@ -69,6 +77,7 @@ const addListItem = async (userId, listType, movieId, contentType, image) => {
         image: image
       });
   
+
       return { success: true, data: newItem};;
     } catch (error) {
       console.error('Error:', error);

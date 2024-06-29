@@ -222,7 +222,7 @@ const Detail = () => {
 
         {showSimilar && (
           <>
-            {loadingSimilar || !similarItemsResults ? (
+            {loadingSimilar || !similarItemsResults && !similarItemsResults.length > 0 ? (
               <Loader />
             ) : (
               <div className="similar-items" style={{margin:'2rem 0'}}>

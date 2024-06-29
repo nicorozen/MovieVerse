@@ -202,6 +202,7 @@ export const ListsProvider = ({ children }) => {
           hideProgressBar: false,
         });
       }
+      
     } catch (error) {
       console.error('Error adding list item:', error);
       toast('Error al agregar el producto a la lista', {

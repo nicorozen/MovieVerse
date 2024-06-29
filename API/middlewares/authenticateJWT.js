@@ -15,7 +15,6 @@ const authenticateJWT = (req, res, next) => {
                 return res.status(403).json({ message: 'Forbidden' });
             }
             req.user = user.id;
-            console.log(req.user);
             next();
         });
     } else {

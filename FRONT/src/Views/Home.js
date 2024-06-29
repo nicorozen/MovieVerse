@@ -44,7 +44,7 @@ function Home() {
           <Information />
           <OutstandingsSection span="Mucho más" title="De Tus Favoritos" floatImage="./images/home/tbbt_characters.jpg" background="./images/home/tbbt_module_background.jpg" />
           <CategoriesSection />
-          <OutstandingsSection span="Mucho más" title="Para Ver en Familia" floatImage="./images/home/feature-harry-potter-char.jpg" background="./images/home/feature-harry-potter-bg.jpg" />
+          <OutstandingsSection span="Mucho más" title="Para Ver y Descubrir" floatImage="./images/home/feature-harry-potter-char.jpg" background="./images/home/feature-harry-potter-bg.jpg" />
         </>
          )}
       {isAuthenticated && (

@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../Context/AuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronCircleLeft, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { faChevronCircleLeft, faEye, faEyeSlash, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import Loader from '../components/Layout/Loader';
 
 const MyAccount = () => {
@@ -98,6 +98,9 @@ const MyAccount = () => {
               className='login-input'
               required
             />
+            <div style={{ color: 'white', position:'absolute',top:'4.5rem',right:'3rem', fontSize:'1.5rem'}} onClick={handleClickShowPassword}>
+                  <FontAwesomeIcon icon={faPencilAlt} />
+              </div>
           </div>
           {/* <div className='input-group'>
             <label htmlFor="password" className='login-label'>Contraseña</label>
