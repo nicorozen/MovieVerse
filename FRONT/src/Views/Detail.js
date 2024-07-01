@@ -14,6 +14,7 @@ const Detail = () => {
   const { type, id } = useParams(); 
   const { toWatchList, favoritesList, viewedList, add, remove } = useLists();
   const { isAuthenticated } = useAuth();
+  const [similarItemsResults, setSimilarItemsResults] = useState([]);
 
   let detailId = parseInt(id);
   const isFavorite = favoritesList.some(favorite => favorite.movieId === detailId);
@@ -29,7 +30,21 @@ const Detail = () => {
   const { data: credits, loading: loadingCredits } = useFetch(`/${endpoint}/${id}/credits`);
   const { data: videos, loading: loadingVideos } = useFetch(`/${endpoint}/${id}/videos`);
 
-  const similarItemsResults = similarItems?.results.filter(s => s.id !== detailId).slice(0, 7);
+  // const similarItemsResults = similarItems?.results.filter(s => s.id !== detailId).slice(0, 7);
+
+  
+  useEffect(() => {
+    const getSimiliarItems = async () => {
+      const similars = similarItems?.results.filter(s => s.id !== detailId).slice(0, 7);
+      setSimilarItemsResults(similars);
+    }
+
+    getSimiliarItems()
+  }, [similarItems]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const [showSimilar, setShowSimilar] = useState(true);
   const [showInformation, setShowInformation] = useState(false);
@@ -48,9 +63,6 @@ const Detail = () => {
     },
   };
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const handleToggleSimilar = () => {
     setShowSimilar(true);
@@ -222,7 +234,7 @@ const Detail = () => {
 
         {showSimilar && (
           <>
-            {loadingSimilar || !similarItemsResults && !similarItemsResults.length > 0 ? (
+            {loadingSimilar || !similarItemsResults ? (
               <Loader />
             ) : (
               <div className="similar-items" style={{margin:'2rem 0'}}>
