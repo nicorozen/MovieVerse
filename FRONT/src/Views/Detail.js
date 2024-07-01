@@ -30,17 +30,16 @@ const Detail = () => {
   const { data: credits, loading: loadingCredits } = useFetch(`/${endpoint}/${id}/credits`);
   const { data: videos, loading: loadingVideos } = useFetch(`/${endpoint}/${id}/videos`);
 
-  // const similarItemsResults = similarItems?.results.filter(s => s.id !== detailId).slice(0, 7);
+  const similars = similarItems?.results.filter(s => s.id !== detailId).slice(0, 7);
 
   
   useEffect(() => {
     const getSimiliarItems = async () => {
-      const similars = similarItems?.results.filter(s => s.id !== detailId).slice(0, 7);
       setSimilarItemsResults(similars);
     }
 
     getSimiliarItems()
-  }, [similarItems]);
+  }, [similarItems, similars]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
