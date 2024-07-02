@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useLists } from '../Context/ListsContext';
 import { useAuth } from '../Context/AuthContext'; 
@@ -30,16 +30,16 @@ const Detail = () => {
   const { data: credits, loading: loadingCredits } = useFetch(`/${endpoint}/${id}/credits`);
   const { data: videos, loading: loadingVideos } = useFetch(`/${endpoint}/${id}/videos`);
 
-  const similars = similarItems?.results.filter(s => s.id !== detailId).slice(0, 7);
+  const similars = useMemo(() => {
+    return similarItems?.results.filter(s => s.id !== detailId).slice(0, 7);
+  }, [similarItems, detailId]);
 
-  
   useEffect(() => {
     const getSimiliarItems = async () => {
       setSimilarItemsResults(similars);
     }
-
     getSimiliarItems()
-  }, [similarItems, similars]);
+  }, [similars]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
